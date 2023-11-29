@@ -29,4 +29,5 @@ public class StartAndSave implements CommandLineRunner {
         studentRepository.save(std2);
 
     }
+
 }
