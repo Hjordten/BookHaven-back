@@ -25,5 +25,6 @@ public class InitData implements CommandLineRunner {
         s1.setName("Finish");
         studentRepository.save(s1);
 
+
     }
 }
