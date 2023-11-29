@@ -11,3 +11,6 @@ public class JpaStudent22Application {
     }
 
 }
+
+
+
