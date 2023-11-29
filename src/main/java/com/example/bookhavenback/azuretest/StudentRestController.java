@@ -30,4 +30,6 @@ public class StudentRestController {
         System.out.println(student);
         return studentRepository.save(student);
     }
+
+
 }
