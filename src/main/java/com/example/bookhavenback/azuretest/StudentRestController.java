@@ -18,18 +18,9 @@ public class StudentRestController {
         return "Du er i roden af JPAStudent22";
     }
 
-    @GetMapping("/students")
-    public List<Student> listStudents() {
-        return studentRepository.findAll();
-    }
+    @GetMapping("/student")
+    public String test() { return "du er ikke i roden";}
 
-    @PostMapping("/student")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Student postStudent(@RequestBody Student student) {
-        System.out.println("Indsætter ny student");
-        System.out.println(student);
-        return studentRepository.save(student);
-    }
 
 
 
