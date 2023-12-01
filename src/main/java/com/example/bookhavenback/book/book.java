@@ -14,4 +14,5 @@ public class book {
     @Column
     private String name;
     private String genre;
+
 }
