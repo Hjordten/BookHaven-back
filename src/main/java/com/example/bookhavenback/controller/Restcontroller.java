@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Restcontroller {
 
 
+
     @GetMapping("/test")
     public String test (){
         return "this is a test";
