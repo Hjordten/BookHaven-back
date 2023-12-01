@@ -10,6 +10,7 @@ import lombok.Setter;
 @Entity @Getter @Setter @NoArgsConstructor
 public class book {
 
+
     @Id
     @Column
     private String name;
