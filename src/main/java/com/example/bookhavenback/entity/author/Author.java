@@ -9,8 +9,10 @@ import lombok.Data;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int authorId;
 
+    @Column(name = "author_name")
     private String authorName;
 }
 
