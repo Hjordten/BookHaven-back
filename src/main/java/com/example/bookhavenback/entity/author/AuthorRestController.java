@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -27,9 +28,9 @@ public class AuthorRestController {
     }
 
     @GetMapping("/author/{id}")
-    public ResponseEntity<Author> findAuthorUsingId(@PathVariable int id) {
-        Author author = authorServiceInterface.findAuthorById(id);
-        if (author == null) {
+    public ResponseEntity<Optional<Author>> findAuthorUsingId(@PathVariable int id) {
+        Optional<Author> author = authorServiceInterface.findAuthorById(id);
+        if (author.isEmpty()) {
             throw new EntityNotFoundException("No Author with the desired id exists");
         } else {
             return ResponseEntity.ok(author);
@@ -52,13 +53,13 @@ public class AuthorRestController {
 
     @PutMapping("/author/{id}")
     public ResponseEntity<String> updateAuthorWithId(@PathVariable int id, @RequestBody Author author) {
-        Author foundAuthor = authorServiceInterface.findAuthorById(id);
+        Optional<Author> foundAuthor = authorServiceInterface.findAuthorById(id);
 
-        if (foundAuthor == null) {
+        if (foundAuthor.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No author with the desired id exists");
         } else {
-            foundAuthor.setAuthorName(author.getAuthorName());
-            Author updatedAuthor = authorServiceInterface.save(foundAuthor);
+            author.setAuthorName(author.getAuthorName());
+            Author updatedAuthor = authorServiceInterface.save(author);
             if (updatedAuthor != null) {
                 return ResponseEntity.ok("Author was successfully updated");
             } else {
@@ -71,12 +72,12 @@ public class AuthorRestController {
 
     @DeleteMapping("/author/{id}")
     public ResponseEntity<String> deleteAuthorUsingId(@PathVariable int id) {
-        Author foundAuthor = authorServiceInterface.findAuthorById(id);
+        Optional<Author> foundAuthor = authorServiceInterface.findAuthorById(id);
 
-        if (foundAuthor == null) {
+        if (foundAuthor.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No author with the desired id exists");
         } else {
-            authorServiceInterface.delete(foundAuthor);
+            authorServiceInterface.delete(foundAuthor.get());
             return ResponseEntity.ok("Author successfully deleted");
         }
     }
