@@ -106,8 +106,8 @@ public class Startdata {
         Genre savedGenre2 = genreRepository.findByGenreName("Dystopian");
         // Repeat for other genres...
 
-        // Now, use the retrieved entities to create relationships
-        // Example for book_genre relationship
+//         Now, use the retrieved entities to create relationships
+//         Example for book_genre relationship
         savedBook1.getGenreSet().add(savedGenre1);
         savedBook2.getGenreSet().add(savedGenre2);
         // Repeat for other relationships...
@@ -115,7 +115,7 @@ public class Startdata {
 //
 //
 //        // Save the entities with relationships back to the database
-//        bookRepository.saveAll(Arrays.asList(savedBook1, savedBook2));
+        bookRepository.saveAll(Arrays.asList(savedBook1, savedBook2));
 //        // Repeat for other repositories...
     }
 }

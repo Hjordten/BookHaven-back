@@ -28,7 +28,7 @@ public class Book {
 
     @Getter
     @Setter
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "book_genre",  // Name of the join table
             joinColumns = @JoinColumn(name = "book_id"),  // Column name in the join table that references Book
