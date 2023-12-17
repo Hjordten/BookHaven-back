@@ -1,0 +1,10 @@
+SELECT * FROM author;
+
+SELECT * FROM genre;
+
+SELECT * FROM book;
+
+SELECT * FROM book_genre;
+
+
+

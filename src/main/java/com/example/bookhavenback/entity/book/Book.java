@@ -3,7 +3,7 @@ package com.example.bookhavenback.entity.book;
 import com.example.bookhavenback.entity.author.Author;
 import com.example.bookhavenback.entity.genre.Genre;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Set;
 
@@ -24,14 +24,15 @@ public class Book {
     @JoinColumn(name = "author_id")  // Column name in the Book table that references Author
     private Author author;
 
-    @ManyToMany
+    @Getter
+    @Setter
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "book_genre",  // Name of the join table
             joinColumns = @JoinColumn(name = "book_id"),  // Column name in the join table that references Book
             inverseJoinColumns = @JoinColumn(name = "genre_id")  // Column name in the join table that references Genre
     )
     private Set<Genre> genreSet;
-
 
 
 }

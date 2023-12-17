@@ -1,7 +1,9 @@
 package com.example.bookhavenback.entity.genre;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -14,4 +16,6 @@ public class Genre {
 
     @Column(name = "genre_name")
     private String genreName;
+
+
 }
