@@ -3,9 +3,7 @@ package com.example.bookhavenback.entity.book;
 import com.example.bookhavenback.entity.author.Author;
 import com.example.bookhavenback.entity.genre.Genre;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
