@@ -1,9 +1,12 @@
 package com.example.bookhavenback.entity.author;
 
+import com.example.bookhavenback.entity.book.Book;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -16,5 +19,8 @@ public class Author {
 
     @Column(name = "author_name")
     private String authorName;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Book> books;
 }
 

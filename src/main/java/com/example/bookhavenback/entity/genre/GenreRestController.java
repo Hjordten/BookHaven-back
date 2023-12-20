@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-public class GenreRestController {
+public class GenreRestController  {
 
     /*------------------------------------------INSTANCES-------------------------------------------------------------*/
 

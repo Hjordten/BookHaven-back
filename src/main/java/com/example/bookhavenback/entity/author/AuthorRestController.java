@@ -45,7 +45,7 @@ public class AuthorRestController {
         if (savedAuthor == null) {
             return ResponseEntity.ok("Missing required fields");
         } else {
-            return ResponseEntity.ok("New author successfully saved");
+            return ResponseEntity.status(HttpStatus.CREATED).body("New author successfully saved");
         }
     }
 
