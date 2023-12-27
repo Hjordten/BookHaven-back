@@ -3,14 +3,7 @@ package com.example.bookhavenback.entity.genre;
 import com.example.bookhavenback.entity.book.Book;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
