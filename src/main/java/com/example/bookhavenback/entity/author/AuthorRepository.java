@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    Author findByAuthorName(String name);
 
 }

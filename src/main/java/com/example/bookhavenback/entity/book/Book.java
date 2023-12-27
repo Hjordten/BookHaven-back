@@ -3,8 +3,11 @@ package com.example.bookhavenback.entity.book;
 import com.example.bookhavenback.entity.author.Author;
 import com.example.bookhavenback.entity.genre.Genre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Set;
 
@@ -21,21 +24,13 @@ public class Book {
     @Column(name = "book_name")
     private String bookName;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id")  // Column name in the Book table that references Author
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    @JsonIgnoreProperties("books")
     private Author author;
 
-    @Getter
-    @Setter
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "book_genre",  // Name of the join table
-            joinColumns = @JoinColumn(name = "book_id"),  // Column name in the join table that references Book
-            inverseJoinColumns = @JoinColumn(name = "genre_id")  // Column name in the join table that references Genre
-    )
-    private Set<Genre> genreSet;
-
-
+    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("book")
+    private Genre genre;
 }
 
